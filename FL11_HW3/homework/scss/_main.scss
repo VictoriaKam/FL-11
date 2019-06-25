@@ -1,0 +1,231 @@
+@function color($key) {
+    @if map-has-key($colors, $key) {
+      @return map-get($colors, $key);
+    }
+  
+    @warn "Unknown `#{$key}` in $colors.";
+    @return null;
+  }
+body {
+    background-color: color(basic);
+}
+main {
+    margin: 0 auto;
+    width: 70%;
+    text-align: center;
+}
+header {
+    min-height: 600px;
+    background-image: $backgroundImage;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid transparent;
+    border-radius: 0 0 200px 0;
+    }
+.header-wrap {
+        margin: 0 auto;
+        width: 960px;
+    }
+.landing-logo {
+        display: flex;
+        }
+.landing-logo img{
+            padding: 0 5px 0 0;
+            margin: 5px 0 0 0;
+        }
+.landing-logo p {
+        color: color(names);
+        font-family: map-get($fonts, 'text_logo');
+        font-size: 10px;
+        text-align: center;  
+    }
+.landing-logo p span {
+        display: block;
+        color: color(names);
+        font-size: 5px;
+        text-align: center;
+    }
+    
+.header_heading {
+        color: color(names);
+        max-width: 40%;
+        font-size: 3em;
+        font-weight: bold;
+        font-family: map-get($fonts, 'headers_buttons');
+    }
+.header_heading::after {
+    display: block;
+    content: '';
+    width: 60%;
+    height: 20px;
+    background: color(underline_dark);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    }
+.header_heading {
+        position: relative;
+        z-index: 1;
+    }
+.header_text {
+        max-width: 60%;
+        color: color(names);
+        font-family: map-get($fonts, 'text_logo');
+        line-height: 1.5;
+        margin-bottom: 60px;
+    }
+%button {
+        width: 150px;
+        height: 50px;
+        background-color: color(button);
+        border: none;
+        color: color(basic);
+        border-radius: 3px;
+        font-family: map-get($fonts, 'headers_buttons');
+        font-size: 20px;
+    }
+.header_button {
+        @extend %button;
+    }
+.section_banner_button {
+        @extend %button
+    }
+.section_text {
+        font-weight: bold;
+        font-family: map-get($fonts, 'text_logo');
+        font-size: 30px;
+        color:  color(names);
+    }
+.section_text::after {
+        display: block;
+        content: '';
+        width: 17%;
+        height: 10px;
+        background: color(underline_dark);
+        position: absolute;
+        bottom: 15px;
+        right: 33%;
+        z-index: -1;
+        }
+    .section_text {
+        position: relative;
+        z-index: -1;
+    }
+.section_card_wrap {
+    display: inline-flex;
+    flex-direction: row; 
+    justify-content: space-around; 
+    align-items: center;
+}
+.section_card {
+    background: color(main);
+    border-radius: 4px;
+    color: color(basic);
+    text-align: center;
+    padding: 0 5px;
+    margin-right: 5px;       
+}
+img.section_card_img {
+    padding: 10px;
+    border-radius: 7px;
+}
+.section_card_heading::after {
+    display: block;
+        content: '';
+        width: 47%;
+        height: 10px;
+        background: color(underline_light);
+        position: absolute;
+        bottom: 0;
+        left: 30%;
+        z-index: -1;
+        }
+.section_card_heading {
+        position: relative;
+        z-index: 1;
+    }
+.section_card_heading {
+        font-family: map-get($fonts, 'headers_buttons');
+        font-size: 20px;
+        font-weight: bold;
+        color: color(text);
+    }
+    .section_card_text {
+        font-family: map-get($fonts, 'text_logo');
+        font-size: 15px;
+        padding: 0 5px;
+        color: color(text);
+    }
+body {
+        position: relative;
+    }
+@mixin flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.section_banner {
+    background: linear-gradient(to left, color(gradient), color(button));
+    border-radius: 5px;
+    position: absolute;
+    width: 850px;
+    left: 325px;
+    bottom: 170px;
+    @include flex;
+}
+.section_banner_heading {
+    font-family: map-get($fonts, 'headers_buttons');
+    font-size: 20px;
+    color: color(names);
+    font-weight: bold;
+}
+.section_banner_heading::after {
+    display: block;
+    content: '';
+    width: 17%;
+    height: 10px;
+    background: color(underline_dark);
+    position: absolute;
+    bottom: 0;
+    left: 80px;
+    z-index: -1;
+    }
+.section_banner_heading {
+        position: relative;
+        z-index: 1;
+    }
+.section_banner_text_wrap .section_banner_text {
+    font-family: map-get($fonts, 'text_logo');
+    color: color(basic);
+}
+.section_card_wrap {
+    margin-bottom: 200px;
+}
+.footer-wrap {
+    background: color(main);
+    color: color(text);
+    @include flex;
+    height: 200px; 
+    font-family: map-get($fonts, 'text_logo');
+}
+.footer-wrap .footer_logo {
+    display: flex;
+}
+.footer_logo p {
+    color: color(text);
+    font-size: 10px;
+    text-align: center;
+}
+.footer_logo p span {
+    color: color(text);
+    text-align: center;
+    font-size: 5px;
+}
+.footer_text {
+   width: 20%;
+}
+.landing-logo img{
+    padding: 0 5px 0 0;
+    margin: 5px 0 0 0;
+}
